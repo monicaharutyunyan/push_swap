@@ -10,13 +10,6 @@ optimized data sorting.
 
 All functions are created in accordance with Norm - the bunch of rules how code should be formatted.
 
-**!NOTE** <br />
-Because of 42 School norm requirements: <br />
-* All variables are declared and aligned at the top of each function <br />
-* Each function can't have more then 25 lines of code <br />
-* C++ style code commenting is forbidden <br />
-* Project should be created just with allowed functions otherwise it's cheating. <br />
-
 ### Game rules
 
 * The game is composed of 2 stacks named a and b. <br>
