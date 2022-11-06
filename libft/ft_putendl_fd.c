@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:44:38 by mharutyu          #+#    #+#             */
-/*   Updated: 2022/11/05 18:17:05 by mharutyu         ###   ########.fr       */
+/*   Created: 2022/04/11 16:41:57 by mharutyu          #+#    #+#             */
+/*   Updated: 2022/04/11 16:43:08 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "ft_printf/ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-
-typedef struct s_struct
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	**av;
-	int		ac;
-	
-}t_struct;
+	int	i;
 
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd(s[i++], fd);
+	}
+	write(fd, "\n", 1);
+}

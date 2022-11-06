@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:44:38 by mharutyu          #+#    #+#             */
-/*   Updated: 2022/11/05 18:17:05 by mharutyu         ###   ########.fr       */
+/*   Created: 2022/03/26 13:33:59 by mharutyu          #+#    #+#             */
+/*   Updated: 2022/03/26 13:49:20 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "ft_printf/ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-
-typedef struct s_struct
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	**av;
-	int		ac;
-	
-}t_struct;
+	size_t			i;
+	unsigned char	*str;
 
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+	{
+		if (str[i] == (unsigned char)c)
+		{
+			return ((unsigned char *)str + i);
+		}
+		++i;
+	}
+	return (NULL);
+}

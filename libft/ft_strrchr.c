@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:44:38 by mharutyu          #+#    #+#             */
-/*   Updated: 2022/11/05 18:17:05 by mharutyu         ###   ########.fr       */
+/*   Created: 2022/03/25 02:44:10 by monicaharut       #+#    #+#             */
+/*   Updated: 2022/03/25 02:59:39 by monicaharut      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "ft_printf/ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-
-typedef struct s_struct
+char	*ft_strrchr(const char *s, int c)
 {
-	char	**av;
-	int		ac;
-	
-}t_struct;
+	int	len;
 
+	len = ft_strlen(s);
+	while (len >= 0)
+	{
+		if (s[len] == (unsigned char) c)
+		{
+			return ((char *)s + len);
+		}
+		--len;
+	}
+	return (NULL);
+}

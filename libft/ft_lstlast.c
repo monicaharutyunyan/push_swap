@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:44:38 by mharutyu          #+#    #+#             */
-/*   Updated: 2022/11/05 18:17:05 by mharutyu         ###   ########.fr       */
+/*   Created: 2022/04/20 22:09:54 by monicaharut       #+#    #+#             */
+/*   Updated: 2022/04/22 22:47:26 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "ft_printf/ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-
-typedef struct s_struct
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	**av;
-	int		ac;
-	
-}t_struct;
+	t_list		*tmp;
 
+	if (!lst)
+		return (NULL);
+	tmp = lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}

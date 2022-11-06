@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:44:38 by mharutyu          #+#    #+#             */
-/*   Updated: 2022/11/05 18:17:05 by mharutyu         ###   ########.fr       */
+/*   Created: 2022/03/21 18:02:45 by mharutyu          #+#    #+#             */
+/*   Updated: 2022/04/22 22:02:21 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "ft_printf/ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-
-typedef struct s_struct
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	**av;
-	int		ac;
-	
-}t_struct;
+	size_t	i;
 
+	i = 0;
+	if (!dst && !src)
+		return (0);
+	while (i < n)
+	{
+		*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
+		i++;
+	}
+	return (dst);
+}

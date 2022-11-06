@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:44:38 by mharutyu          #+#    #+#             */
-/*   Updated: 2022/11/05 18:17:05 by mharutyu         ###   ########.fr       */
+/*   Created: 2022/03/25 02:25:31 by monicaharut       #+#    #+#             */
+/*   Updated: 2022/04/22 19:23:22 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "ft_printf/ft_printf.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-
-typedef struct s_struct
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	**av;
-	int		ac;
-	
-}t_struct;
+	size_t	altdst;
+	size_t	lsrc;
+	size_t	i;
 
+	if (size == 0)
+		return (ft_strlen((char *)src));
+	lsrc = ft_strlen((char *)src);
+	i = 0;
+	while (dst[i] && i < size)
+	i++;
+	altdst = i;
+	while (src[i - altdst] && i < size - 1)
+	{
+	dst[i] = src[i - altdst];
+	i++;
+	}
+	if (altdst < size)
+		dst[i] = '\0';
+	return (altdst + lsrc);
+}
