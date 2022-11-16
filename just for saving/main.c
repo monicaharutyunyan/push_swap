@@ -3,34 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 15:17:02 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/11/14 22:15:29 by monicaharut      ###   ########.fr       */
+/*   Created: 2022/10/28 16:49:05 by mharutyu          #+#    #+#             */
+/*   Updated: 2022/11/05 15:23:48 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void)
+
+int	ft_checking(int ac, char **av)
 {
-	ft_putstr_fd("Error", 2);
-	exit(0);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while(av[i][j])
+		{
+			if((av[i][j] == '+' || av[i][j] == '-'))
+			{
+				++j;
+				while(av[i][j] >= '0' && av[i][j] <= '9')
+					++j;
+				printf("after while j: %d\n", j);
+				if(av[i][j] != ' ' || av[i][j] )
+					return (0);
+			}
+			++j;
+		}
+		++i;
+	}
+	return (1);
 }
 
 int	main(int ac, char **av)
 {
-	t_struct	*info;
-	t_list		*a;
-	t_list		*b;
+	int	i;
+	int res;
 
-	info = malloc(sizeof(t_struct));
-	if (!info)
-		ft_error();
+	i = 0;
 	if (ac < 2)
-		ft_error();
-	info->ac = ac;
-	info->av = av;
-	fill(info);
-	
+	{
+		ft_printf("Error!");
+		exit(0);
+	}
+	res = ft_checking(ac, av);
+	printf("%d\n", res);
 }

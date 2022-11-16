@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 15:17:02 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/11/14 22:15:29 by monicaharut      ###   ########.fr       */
+/*   Created: 2022/11/14 20:01:56 by monicaharut       #+#    #+#             */
+/*   Updated: 2022/11/14 20:02:37 by monicaharut      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void)
+long long	ft_atoi(char *str)
 {
-	ft_putstr_fd("Error", 2);
-	exit(0);
-}
+	long long	res;
+	int			min;
+	int			i;
 
-int	main(int ac, char **av)
-{
-	t_struct	*info;
-	t_list		*a;
-	t_list		*b;
-
-	info = malloc(sizeof(t_struct));
-	if (!info)
+	min = 1;
+	res = 0;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ' || str[i] == 0)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			min = -1;
+		i++;
+	}
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	if ((res * min) > 2147483647 || (res * min) < -2147483648)
 		ft_error();
-	if (ac < 2)
-		ft_error();
-	info->ac = ac;
-	info->av = av;
-	fill(info);
-	
+	return (res * min);
 }
