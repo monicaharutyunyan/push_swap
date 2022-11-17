@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:42 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/11/14 22:09:47 by monicaharut      ###   ########.fr       */
+/*   Updated: 2022/11/17 22:41:55 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				data;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -32,13 +33,17 @@ typedef struct s_struct
 	char	**matrix;
 }	t_struct;
 
+char		*ft_strjoin(char *s1, char *s2);
+char		**ft_split(char *str, char c);
+int			ft_strlen(char *str);
+long long	ft_atoi(char *str);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
+t_list		*ft_lstadd_back(t_list *lst, t_list *new);
+t_list		*ft_lstlast(t_list *lst);
+t_list		*ft_lstnew(int data);
+void		fill_lst(t_list **lst, t_struct *info);
+void		fii_lst(t_list **lst, t_struct *info);
 void		fill(t_struct *info);
 void		ft_error(void);
-int			ft_strlen(const char *str);
-char		**ft_split(char *str, char c);
-char		*ft_strjoin(char *s1, char *s2);
-long long	ft_atoi(char *str);
-
 #endif

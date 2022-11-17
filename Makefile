@@ -1,20 +1,20 @@
 NAME 		= push_swap
 
-CC 			= gcc
+CC 			= cc
 
-CFLAGS 		= -Wall -Wextra -fsanitize=address -g -ggdb3 #-Werror#-fsanitize=address -g -ggdb3  #-Werror#TODO add flags
+CFLAGS 		= -Wall -Wextra  -fsanitize=address -g -ggdb3#-Werror #-fsanitize=address -g -ggdb3  #-Werror#TODO add flags
 
 SRCS		= $(wildcard *.c)
 
 OBJS 		= $(SRCS:%.c=%.o)
 
 %.c:
-	@$(CC) $(CFLAGS) 
+	@$(CC) $(CFLAGS)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) -fsanitize=address -g -ggdb3 -o $(NAME)
+	@ $(CC) $(OBJS) -fsanitize=address -g -ggdb3 -o $(NAME)
 	@echo -e "$(GREEN)✅$(NAME) created!$(DEFAULT) 😊🥑"
 
 clean:
@@ -27,7 +27,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
 
 RED = \033[1;31m
 GREEN = \033[1;32m

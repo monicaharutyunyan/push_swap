@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:17:02 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/11/14 22:15:29 by monicaharut      ###   ########.fr       */
+/*   Updated: 2022/11/17 22:51:49 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ void	ft_error(void)
 {
 	ft_putstr_fd("Error", 2);
 	exit(0);
+}
+
+void	fill_lst(t_list **lst, t_struct *info)
+{
+	int	i;
+
+	i = 0;
+	while (i < info->len)
+	{
+		*lst = ft_lstadd_back(*lst, ft_lstnew(info->numbers[i]));
+		i++;
+	}
 }
 
 int	main(int ac, char **av)
@@ -32,5 +44,5 @@ int	main(int ac, char **av)
 	info->ac = ac;
 	info->av = av;
 	fill(info);
-	
+	fill_lst(&a, info);
 }
