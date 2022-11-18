@@ -6,7 +6,7 @@
 /*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:42 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/11/17 22:41:55 by mharutyu         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:52:41 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ t_list		*ft_lstnew(int data);
 void		fill_lst(t_list **lst, t_struct *info);
 void		fii_lst(t_list **lst, t_struct *info);
 void		fill(t_struct *info);
+void		before_indexing(t_list **lst);
+void		indexing(t_list **lst, t_struct *info);
 void		ft_error(void);
 #endif

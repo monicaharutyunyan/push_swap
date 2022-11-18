@@ -6,7 +6,7 @@
 /*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:17:02 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/11/17 22:51:49 by mharutyu         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:59:49 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	ft_putstr_fd("Error", 2);
+	ft_putstr_fd("Error\n", 2);
 	exit(0);
 }
 
@@ -45,4 +45,11 @@ int	main(int ac, char **av)
 	info->av = av;
 	fill(info);
 	fill_lst(&a, info);
+	indexing(&a, info);
+
+	while (a)
+	{
+		printf("index: %d\n", a->index);
+		a = a->next;
+	}
 }
