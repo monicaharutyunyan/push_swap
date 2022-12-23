@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checking.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:18:07 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/12/21 19:36:11 by monicaharut      ###   ########.fr       */
+/*   Updated: 2022/11/16 15:46:11 by mharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

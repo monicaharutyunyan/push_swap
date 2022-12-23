@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:42 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/11/18 15:52:41 by mharutyu         ###   ########.fr       */
+/*   Updated: 2022/12/21 20:52:21 by monicaharut      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ typedef struct s_list
 
 typedef struct s_struct
 {
+	int		step;
+	int		b_size;
+	int		a_size;
 	int		ac;
 	int		len;
+	int		index;
 	int		*numbers;
 	char	**av;
 	char	*str;
@@ -36,16 +40,25 @@ typedef struct s_struct
 char		*ft_strjoin(char *s1, char *s2);
 char		**ft_split(char *str, char c);
 int			ft_strlen(char *str);
+int			ft_lst_size(t_list *listik);
 long long	ft_atoi(char *str);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
+void		ft_lstadd_front(t_list **listik, t_list *new);
 t_list		*ft_lstadd_back(t_list *lst, t_list *new);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstnew(int data);
-void		fill_lst(t_list **lst, t_struct *info);
-void		fii_lst(t_list **lst, t_struct *info);
+int			find_pos(t_list *lst, int x);
+int			sab(t_list *lst, int flag);
+int			rab(t_list **lst, int flag);
+int			rrab(t_list **lst, int flag);
+int			pab(t_list **a, t_list **b, int flag);
+int			checking_sort(t_struct *info, t_list **listik);
+void		ft_error(void);
 void		fill(t_struct *info);
 void		before_indexing(t_list **lst);
+void		fii_lst(t_list **lst, t_struct *info);
+void		fill_lst(t_list **lst, t_struct *info);
 void		indexing(t_list **lst, t_struct *info);
-void		ft_error(void);
+void		titernik(t_struct *info, t_list **a, t_list **b);
 #endif
