@@ -2,7 +2,7 @@ NAME 		= push_swap
 
 CC 			= cc
 
-CFLAGS 		= -Wall -Wextra  -fsanitize=address -g -ggdb3#-Werror #-fsanitize=address -g -ggdb3  #-Werror#TODO add flags
+CFLAGS 		= -Wall -Wextra  #-fsanitize=address -g -ggdb3#-Werror #-fsanitize=address -g -ggdb3  #-Werror#TODO add flags
 
 SRCS		= $(wildcard *.c)
 
@@ -14,7 +14,7 @@ OBJS 		= $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ $(CC) $(OBJS) -fsanitize=address -g -ggdb3 -o $(NAME)
+	@ $(CC) $(OBJS) -o $(NAME)
 	@echo -e "$(GREEN)✅$(NAME) created!$(DEFAULT) 😊🥑"
 
 clean:

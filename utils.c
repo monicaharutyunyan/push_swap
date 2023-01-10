@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:02:05 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/12/21 20:53:45 by monicaharut      ###   ########.fr       */
+/*   Updated: 2022/12/23 13:35:35 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,8 @@ void	ft_lstadd_front(t_list **listik, t_list *new)
 	*listik = new;
 }
 
-
-int	checking_sort(t_struct *info, t_list **listik) // 1 0 2
+void	ft_error(void)
 {
-	int		i;
-	t_list	*head;
-
-	i = -1;
-	head = *listik;
-	if (!(*listik))
-		return (1);
-	while (++i < info->len && head && info->numbers[i] == head->data)
-		head = head->next;
-	if (i == info->len)
-		return (1);
-	return (0);
+	ft_putstr_fd("Error\n", 2);
+	exit(0);
 }

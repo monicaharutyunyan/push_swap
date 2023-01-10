@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:52:02 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/12/21 17:42:26 by monicaharut      ###   ########.fr       */
+/*   Updated: 2022/12/23 14:00:39 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	sab(t_list *lst, int flag)
 {
@@ -23,6 +22,9 @@ int	sab(t_list *lst, int flag)
 		temp->index = temp->index + temp->next->index;
 		temp->next->index = temp->index - temp->next->index;
 		temp->index = temp->index - temp->next->index;
+		temp->data = temp->data + temp->next->data;
+		temp->next->data = temp->data - temp->next->data;
+		temp->data = temp->data - temp->next->data;
 		if (flag == 1)
 			write(1, "sa\n", 3);
 		else if (flag == 0)
@@ -44,7 +46,7 @@ int	pab(t_list **a, t_list **b, int flag)
 	add->data = (*b)->data;
 	add->index = (*b)->index;
 	ft_lstadd_front(a, add);
-	// free((*b));
+	free((*b));
 	(*b) = next_b;
 	if (flag == 1)
 		write(1, "pa\n", 3);

@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:17:02 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/12/23 00:01:17 by monicaharut      ###   ########.fr       */
+/*   Updated: 2022/12/23 13:35:32 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_error(void)
-{
-	ft_putstr_fd("Error\n", 2);
-	exit(0);
-}
 
 void	fill_lst(t_list **lst, t_struct *info)
 {
@@ -35,9 +29,9 @@ int	is_sorted(t_list *a)
 	t_list	*temp;
 
 	temp = a;
-	while (temp->next)
+	while (temp && temp->next)
 	{
-		if(temp->index > temp->next->index)
+		if (temp->index > temp->next->index)
 			return (0);
 		temp = temp->next;
 	}
@@ -50,22 +44,16 @@ void	lst_free(t_list *lst)
 
 	while (lst)
 	{
-		temp = lst;
-		lst = lst->next;
-		free(temp);
+		temp = lst->next;
+		free(lst);
+		lst = temp;
 	}
 }
 
 void	my_free(t_list **a, t_list **b, t_struct *info)
 {
-	int	i;
-
-	i = -1;
 	free(info->numbers);
 	free(info->str);
-	while (info->matrix[++i])
-		free(info->matrix[i]);
-	free(info->matrix);
 	free(info);
 	lst_free(*a);
 	lst_free(*b);
@@ -76,7 +64,7 @@ int	main(int ac, char **av)
 	t_struct	*info;
 	t_list		*a;
 	t_list		*b;
-	
+
 	if (ac < 2)
 		ft_error();
 	info = malloc(sizeof(t_struct));

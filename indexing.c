@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mharutyu <mharutyu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:21:42 by mharutyu          #+#    #+#             */
-/*   Updated: 2022/11/19 14:05:24 by mharutyu         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:37:59 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -28,8 +27,8 @@ void	before_indexing(t_list **lst)
 
 t_list	*finding_min(t_list **lst, t_list *min)
 {
-	t_list	*ptr;
-	static	int		count = 0;
+	static int		count = 0;
+	t_list			*ptr;
 
 	ptr = *lst;
 	while ((*lst))

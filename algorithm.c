@@ -14,7 +14,7 @@
 
 void	fill_b(t_list **a, t_list **b, t_struct *info)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
 	if (info->len > 100)
@@ -63,52 +63,6 @@ void	backfill(t_list **a, t_list **b, t_struct *info)
 	}
 }
 
-void	alg_three(t_list **a, t_struct *info)
-{
-	int	pos;
-
-	pos = find_pos(*a, 2);
-	if (pos == 1)
-		rrab(a, 1);
-	else if (!pos)
-		rab(a, 1);
-	if (!checking_sort(info, a))
-		sab(*a, 1);
-}
-
-void	alg_five(t_list **a, t_list **b, t_struct *info)
-{
-	int	i1;
-	int	i;
-
-	i1 = -1;
-	info->a_size = info->len;
-	while (++i1 < 2)
-	{
-		i = -1;
-		info->index = find_pos(*a, info->a_size - 1);
-		if (info->index <= info->a_size / 2)
-			while (++i < info->index)
-				rab(a, 1);
-		else
-			while (++i < info->a_size - info->index)
-				rrab(a, 1);
-		pab(b, a, 0);
-		info->a_size--;
-	}
-	alg_three(a, info);
-	info->b_size = ft_lst_size(*b);
-	if (info->b_size > 1 && (*b)->index > (*b)->next->index)
-		sab(*b, 0);
-	while (info->b_size)
-	{
-		pab(a, b, 1);
-		rab(a, 1);
-		info->b_size--; 
-	}
-}
-
-
 void	titernik(t_struct *info, t_list **a, t_list **b)
 {
 	if (info->len > 5)
@@ -116,9 +70,13 @@ void	titernik(t_struct *info, t_list **a, t_list **b)
 		fill_b(a, b, info);
 		backfill(a, b, info);
 	}
+	else if (info->len == 2)
+	{
+		if ((*a)->data > (*a)->next->data)
+			sab(*a, 1);
+	}
 	else if (info->len == 3)
-		alg_three(a, info);
-	
+		alg_three(a);
 	else
 		alg_five(a, b, info);
 }

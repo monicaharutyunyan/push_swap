@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monicaharutyunyan <monicaharutyunyan@st    +#+  +:+       +#+        */
+/*   By: tumolabs <tumolabs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:42 by monicaharut       #+#    #+#             */
-/*   Updated: 2022/12/21 20:52:21 by monicaharut      ###   ########.fr       */
+/*   Updated: 2022/12/23 13:34:09 by tumolabs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_struct
 	char	**matrix;
 }	t_struct;
 
+int			is_sorted(t_list *a);
 char		*ft_strjoin(char *s1, char *s2);
 char		**ft_split(char *str, char c);
 int			ft_strlen(char *str);
@@ -56,9 +57,11 @@ int			pab(t_list **a, t_list **b, int flag);
 int			checking_sort(t_struct *info, t_list **listik);
 void		ft_error(void);
 void		fill(t_struct *info);
+void		alg_three(t_list **a);
 void		before_indexing(t_list **lst);
 void		fii_lst(t_list **lst, t_struct *info);
 void		fill_lst(t_list **lst, t_struct *info);
 void		indexing(t_list **lst, t_struct *info);
+void		alg_five(t_list **a, t_list **b, t_struct *info);
 void		titernik(t_struct *info, t_list **a, t_list **b);
 #endif
